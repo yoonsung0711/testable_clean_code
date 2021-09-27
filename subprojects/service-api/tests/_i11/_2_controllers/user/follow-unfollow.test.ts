@@ -1,0 +1,77 @@
+import { Request } from 'express'
+import { Connection, getConnection } from 'typeorm'
+import { createUserTestService } from '@tests/helpers/services'
+import { IHttpResponse } from '@feed/typings'
+
+import { PutUser } from '@feed/controllers/user/controllers'
+import { User } from '@feed/database'
+
+describe('User Controller', () => {
+    let conn: Connection
+
+    let putUser: (httpRequest: Partial<Request>) => Promise<IHttpResponse>
+
+    beforeAll(() => {
+        conn = getConnection()
+
+        putUser = PutUser(createUserTestService(conn))
+    })
+
+    describe('[PUT: /users/:userUid =>] IUserCommandType.FOLLOW_FRIEND', () => {
+        it('controller.putUser <= service.followFriend({ loginUseruid, friendUid })', async () => {
+            const httpRequest: Partial<Request> = {
+                body: {
+                    login_user_uid: '9f9e',
+                },
+                query: {
+                    command: 'follow',
+                    subject: 'feed',
+                },
+                params: {
+                    userUid: '4fae',
+                }
+            }
+            const before = await conn.getRepository(User).findOneOrFail({ where: { uuid: '4fae' }})
+            expect(before.followers).toEqual([])
+
+            const result = await putUser(httpRequest)
+            expect(result.statusCode).toEqual(200)
+            expect(result).toEqual({ "body": { "msg": "updated"}, "statusCode": 200 })
+
+            const after = await conn.getRepository(User).findOneOrFail({ where: { uuid: '4fae' }}) 
+            expect(after.followers).toEqual(["9f9e"])
+        })
+    })
+
+    describe('[PUT: /users/:userUid =>] IUserCommandType.UNFOLLOW_FRIEND', () => {
+
+        beforeAll(async () => {
+            const user = await conn.getRepository(User).findOneOrFail({ where: { uuid: 'be67' } })
+            user.followers = ['9f9e']
+        })
+        
+        it('controller.putUser <= service.unfollowFriend({ loginUseruid, friendUid })', async () => {
+            const httpRequest: Partial<Request> = {
+                body: {
+                    login_user_uid: '9f9e',
+                },
+                query: {
+                    command: 'unfollow',
+                    subject: 'feed',
+                },
+                params: {
+                    userUid: '4fae',
+                }
+            }
+            const before = await conn.getRepository(User).findOneOrFail({ where: { uuid: '4fae' }})
+            expect(before.followers).toEqual(["9f9e"])
+            
+            const result = await putUser(httpRequest)
+            expect(result.statusCode).toEqual(200)
+            expect(result).toEqual({ "body": { "msg": "updated"}, "statusCode": 200 })
+            
+            const after = await conn.getRepository(User).findOneOrFail({ where: { uuid: '4fae' }}) 
+            expect(after.followers).toEqual([])
+        })
+    })
+})

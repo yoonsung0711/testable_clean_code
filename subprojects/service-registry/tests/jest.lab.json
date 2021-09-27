@@ -1,0 +1,21 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testMatch": [
+    "<rootDir>./tests/_i11/_0_lab/**/*test.ts"
+  ],
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@registry/(.*)$": "<rootDir>/src/$1",
+    "@tests/(.*)$": "<rootDir>/tests/$1"
+  },
+  "setupFilesAfterEnv": ["<rootDir>/tests/settings/setup-db.i11.ts"],
+  "bail": 1
+}

@@ -1,0 +1,27 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testMatch": [
+    "<rootDir>./tests/_unit/_1_routers/**/*test.ts",
+    "<rootDir>./tests/_unit/_2_controllers/**/*test.ts",
+    "<rootDir>./tests/_unit/_3_services/**/*test.ts",
+    "<rootDir>./tests/_unit/_4_database/**/*test.ts",
+    "<rootDir>./tests/_unit/_5_middlewares/**/*test.ts"
+  ],
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@gateway/(.*)$": "<rootDir>/src/$1",
+    "@config/(.*)$": "<rootDir>/config/$1",
+    "@tests/(.*)$": "<rootDir>/tests/$1"
+  },
+  "restoreMocks": true,
+  "clearMocks": true,
+  "bail": true
+}

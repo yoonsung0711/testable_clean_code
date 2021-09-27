@@ -1,0 +1,80 @@
+import { Request } from 'express'
+import mock, { MockProxy } from 'jest-mock-extended/lib/Mock'
+import { ICircuitBreaker } from '@gateway/services'
+import { PostFeed } from '@gateway/controllers/feed/controllers'
+import { GetFeeds } from '@gateway/controllers/feed/controllers'
+import { IServiceFinder } from '@gateway/services/finder';
+import { ICircuitBreakerContext } from '@gateway/typings/circuit-breaker'
+
+describe('Feed Controller', () => {
+    let context: MockProxy<ICircuitBreakerContext>
+
+    let getFeeds: (httpRequest: Request) => Promise<any>
+
+    beforeAll(() => {
+        mockCircuitBreaker = mock<ICircuitBreaker>()
+        mockServiceFinder = mock<IServiceFinder>()
+
+        getFeeds = GetFeeds({ circuitBreaker: mockCircuitBreaker, serviceFinder: mockServiceFinder})
+    })
+
+    describe('[GET: /feeds => ]', () => {
+
+        describe('FeedCommandType: LOGIN_USER_UNREAD_FEEDS', () => {
+            it('controller.getFeeds => service.readUnreadFeeds({ writerUid: login_user_uid })', async () => {
+                const httpRequest: Partial<Request> = {
+                    login_user_uid: '4fae',
+                    query: {
+                        batchSize: '3',
+                        target: 'login_user',
+                        query: 'unread',
+                    }
+                }
+                await getFeeds(httpRequest as Request)
+                expect(mockCircuitBreaker.).toHaveBeenCalledWith({ loginUserUid: '4fae', batchSize: 3 })
+            })
+        })
+
+        describe('FeedCommandType: LOGIN_USER_RECENT_POSTS', () => {
+            it('controller.getFeeds => service.readRecentPosts({ userUid: login_user_uid })', async () => {
+                const httpRequest: Partial<Request> = {
+                    login_user_uid: '4fae',
+                    query: {
+                        target: 'login_user',
+                        query: 'recent',
+                    }
+                }
+                await getFeeds(httpRequest as Request)
+                expect(mockService.readRecentPosts).toHaveBeenCalledWith({ userUid: '4fae' })
+            })
+        })
+
+        describe('FeedCommandType: SELECT_USER_RECENT_POSTS', () => {
+            it('controller.getFeeds => service.readRecentPosts({ userUid: login_user_uid })', async () => {
+                const httpRequest: Partial<Request> = {
+                    query: {
+                        target: 'select_user',
+                        query: 'recent',
+                        userUid: 'be67',
+                    }
+                }
+                await getFeeds(httpRequest as Request)
+                expect(mockService.readRecentPosts).toHaveBeenCalledWith({ userUid: 'be67' })
+            })
+        })
+    })
+
+    describe('[POST: /feeds => ]', () => {
+        it('controller.postFeed => service.publishFeed({ writerUid, msg })', async () => {
+            const httpRequest: Partial<Request> = {
+                login_user_uid: '3c07',
+                body: {
+                    msg: 'this is unit test'
+                }
+            }
+            await postFeed(httpRequest as Request)
+            expect(mockService.publishFeed).toHaveBeenCalledWith({ writerUid: '3c07', msg: 'this is unit test' })
+        })
+    })
+})
+

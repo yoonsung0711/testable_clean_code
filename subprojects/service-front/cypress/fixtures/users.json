@@ -1,0 +1,90 @@
+[
+    {
+        "userId": "86c9be78",
+        "uuid": "be67",
+        "name": "James",
+        "userDetail": {
+            "uuid": "be67",
+            "img": "avatar1",
+            "device": "Web",
+            "deviceIcon": "fa-globe-americas"
+        }
+    },
+    {
+        "userId": "b4125da5",
+        "uuid": "4fae",
+        "name": "Michael",
+        "userDetail": {
+            "uuid": "4fae",
+            "img": "avatar2",
+            "device": "Mobile",
+            "deviceIcon": "fa-mobile-alt"
+        }
+    },
+    {
+        "userId": "b41efe67",
+        "uuid": "9f9e",
+        "name": "Jenny",
+        "userDetail": {
+            "uuid": "9f9e",
+            "img": "avatar3",
+            "device": "Mobile",
+            "deviceIcon": "fa-mobile-alt"
+        }
+    },
+    {
+        "userId": "b38866c8",
+        "uuid": "a939",
+        "name": "Tom",
+        "userDetail": {
+            "uuid": "a939",
+            "img": "avatar4",
+            "device": "Web",
+            "deviceIcon": "fa-globe-americas"
+        }
+    },
+    {
+        "userId": "eeb0421d",
+        "uuid": "c097",
+        "name": "Jacky",
+        "userDetail": {
+            "uuid": "c097",
+            "img": "avatar5",
+            "device": "Mobile",
+            "deviceIcon": "fa-mobile-alt"
+        }
+    },
+    {
+        "userId": "43db5685",
+        "uuid": "2e3f",
+        "name": "Mark",
+        "userDetail": {
+            "uuid": "2e3f",
+            "img": "avatar6",
+            "device": "Web",
+            "deviceIcon": "fa-globe-americas"
+        }
+    },
+    {
+        "userId": "5a9babdf",
+        "uuid": "14ac",
+        "name": "Ethan",
+        "userDetail": {
+            "uuid": "14ac",
+            "img": "avatar7",
+            "device": "Web",
+            "deviceIcon": "fa-globe-americas"
+        }
+    },
+    {
+        "userId": "817c77ba",
+        "uuid": "3c07",
+        "name": "Mia",
+        "userDetail": {
+            "uuid": "3c07",
+            "img": "avatar8",
+            "device": "Mobile",
+            "deviceIcon": "fa-mobile-alt"
+        }
+    }
+]

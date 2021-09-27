@@ -1,0 +1,17 @@
+{
+  "name": "@micro/service-front",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "bash deploy-local.sh",
+    "stop": "bash terminate-local.sh"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "axios": "^0.21.1",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11"
+  }
+}

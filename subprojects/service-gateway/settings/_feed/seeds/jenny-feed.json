@@ -1,0 +1,62 @@
+[
+    {
+        "uuid": "e56e",
+        "feedId": "98a6d005",
+        "dislikers": [],
+        "likers": [],
+        "msg": "Why didn’t the skeleton cross the road?\nBecause he had no guts.",
+        "writer": {
+            "uuid": "9f9e",
+            "name": "Jenny"
+        },
+        "createdAt": "2021-04-22T13:48:21.951Z"
+    },
+    {
+        "uuid": "f688",
+        "feedId": "384046f8",
+        "dislikers": [],
+        "likers": [],
+        "msg": "How did the hipster burn the roof of his mouth?\nHe ate the pizza before it was cool.",
+        "writer": {
+            "uuid": "9f9e",
+            "name": "Jenny"
+        },
+        "createdAt": "2021-04-23T05:02:03.156Z"
+    },
+    {
+        "uuid": "0ce4",
+        "feedId": "92eb5ea5",
+        "dislikers": [],
+        "likers": [],
+        "msg": "How do you know if there’s an elephant under your bed?\nYour head hits the ceiling!",
+        "writer": {
+            "uuid": "9f9e",
+            "name": "Jenny"
+        },
+        "createdAt": "2021-04-23T06:56:16.848Z"
+    },
+    {
+        "uuid": "cb77",
+        "feedId": "dd49c787",
+        "dislikers": [],
+        "likers": [],
+        "msg": "Do you know where you can get chicken broth in bulk?\nThe stock market.",
+        "writer": {
+            "uuid": "9f9e",
+            "name": "Jenny"
+        },
+        "createdAt": "2021-04-23T09:15:50.035Z"
+    },
+    {
+        "uuid": "8676",
+        "feedId": "62d32afa",
+        "dislikers": [],
+        "likers": [],
+        "msg": "Where does batman go to the bathroom?\nThe batroom.",
+        "writer": {
+            "uuid": "9f9e",
+            "name": "Jenny"
+        },
+        "createdAt": "2021-04-23T13:05:58.068Z"
+    }
+]

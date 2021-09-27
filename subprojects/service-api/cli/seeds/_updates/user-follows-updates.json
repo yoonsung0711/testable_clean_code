@@ -1,0 +1,53 @@
+[
+  {
+    "uuid": "4fae",
+    "name": "Michael",
+    "leaders": ["9f9e", "a939" ],
+    "followers": ["a939", "14ac" ]
+  },
+  {
+    "uuid": "9f9e",
+    "name": "Jenny",
+    "leaders": ["c097", "3c07", "14ac" ],
+    "followers": ["4fae", "c097" ]
+  },
+  {
+    "uuid": "a939",
+    "name": "Tom",
+    "leaders": ["4fae" ],
+    "followers": ["4fae", "be67"]
+  },
+  {
+    "uuid": "c097",
+    "name": "Jacky",
+    "leaders": ["9f9e", "be67", "2e3f" ],
+    "followers": ["9f9e", "be67"
+    ]
+  },
+  {
+    "uuid": "3c07",
+    "name": "Mia",
+    "leaders": ["2e3f", "be67" ],
+    "followers": ["9f9e"
+    ]
+  },
+  {
+    "uuid": "14ac",
+    "name": "Ethan",
+    "leaders": ["be67", "4fae", "be67" ],
+    "followers": ["9f9e"
+    ]
+  },
+  {
+    "uuid": "2e3f",
+    "name": "Mark",
+    "leaders": ["9f9e", "3c07", "c097" ],
+    "followers": ["c097", "3c07" ]
+  },
+  {
+    "uuid": "be67",
+    "name": "James",
+    "leaders": ["c097", "a939" ],
+    "followers": ["3c07", "14ac" ]
+  }
+]

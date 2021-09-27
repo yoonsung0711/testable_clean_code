@@ -1,0 +1,1 @@
+export { seedFeed } from './seeding.feed'

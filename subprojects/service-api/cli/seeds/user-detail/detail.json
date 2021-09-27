@@ -1,0 +1,58 @@
+[
+    {
+        "userDetailId": "cdbd9b90",
+        "uuid": "be67",
+        "img": "avatar1",
+        "device": "Web",
+        "deviceIcon": "fa-globe-americas"
+    },
+    {
+        "userDetailId": "91cf4aa9",
+        "uuid": "4fae",
+        "img": "avatar2",
+        "device": "Mobile",
+        "deviceIcon": "fa-mobile-alt"
+    },
+    {
+        "userDetailId": "46fb4db9",
+        "uuid": "9f9e",
+        "img": "avatar3",
+        "device": "Mobile",
+        "deviceIcon": "fa-mobile-alt"
+    },
+    {
+        "userDetailId": "dc96f4e3",
+        "uuid": "a939",
+        "img": "avatar4",
+        "device": "Web",
+        "deviceIcon": "fa-globe-americas"
+    },
+    {
+        "userDetailId": "3837cfc1",
+        "uuid": "c097",
+        "img": "avatar5",
+        "device": "Mobile",
+        "deviceIcon": "fa-mobile-alt"
+    },
+    {
+        "userDetailId": "b3ba0086",
+        "uuid": "2e3f",
+        "img": "avatar6",
+        "device": "Web",
+        "deviceIcon": "fa-globe-americas"
+    },
+    {
+        "userDetailId": "1a543727",
+        "uuid": "14ac",
+        "img": "avatar7",
+        "device": "Web",
+        "deviceIcon": "fa-globe-americas"
+    },
+    {
+        "userDetailId": "a9bc835a",
+        "uuid": "3c07",
+        "img": "avatar8",
+        "device": "Mobile",
+        "deviceIcon": "fa-mobile-alt"
+    }
+]

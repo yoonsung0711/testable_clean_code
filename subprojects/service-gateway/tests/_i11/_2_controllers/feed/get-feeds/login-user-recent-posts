@@ -1,0 +1,68 @@
+import { Request } from 'express'
+import { Connection, getConnection } from 'typeorm'
+
+import { GetFeeds } from '@gateway/controllers/feed/controllers'
+import { IHttpResponse } from '@gateway/typings'
+
+import { seedFeed } from '@settings/_feed'
+
+import { updateUserPosts } from '@settings/_user/updating.user'
+
+
+describe('Feed Controller', () => {
+    let conn: Connection
+
+    let getFeeds: (httpRequest: Partial<Request>) => Promise<IHttpResponse>
+
+    beforeAll(async () => {
+        conn = getConnection()
+
+        await updateUserPosts(conn)([
+            {
+                "uuid": "4fae",
+                "name": "Michael",
+                "posts": ["6ee4", "013a"]
+            }
+        ])
+
+        await seedFeed(conn)(michael_posts)
+
+        getFeeds = GetFeeds(createFeedTestService(conn))
+    })
+
+    describe('[GET: /feeds => ]', () => {
+        describe('FeedCommandType: LOGIN_USER_RECENT_POSTS', () => {
+            it('returns feeds with status code 200 <= service.getFeeds({ logginUser })', async () => {
+                const httpRequest: Partial<Request> = {
+                    login_user_uid: '4fae',
+                    query: {
+                        target: 'login_user',
+                        query: 'recent',
+                    }
+                }
+                const result = await getFeeds(httpRequest)
+                expect(result.statusCode).toEqual(200)
+                expect(result.body.length).toEqual(2)
+            })
+        })
+    })
+})
+
+const michael_posts = [
+    {
+        "feedId": "9af35b05",
+        "uuid": "6ee4",
+        "msg": "What did the beaver say to the tree?\nIt's been nice gnawing you.",
+        "writer": {
+            "uuid": "4fae",
+        }
+    },
+    {
+        "feedId": "a9d2aa78",
+        "uuid": "013a",
+        "msg": "Why did the kid cross the playground?\nTo get to the other slide.",
+        "writer": {
+            "uuid": "4fae",
+        }
+    }
+]

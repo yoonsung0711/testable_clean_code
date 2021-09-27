@@ -1,0 +1,26 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testMatch": [
+    "<rootDir>./tests/_i11/_2_controllers/**/*test.ts",
+    "<rootDir>./tests/_i11/_3_services/**/*test.ts",
+    "<rootDir>./tests/_i11/_4_database/**/*test.ts"
+  ],
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@feed/(.*)$": "<rootDir>/src/$1",
+    "@tests/(.*)$": "<rootDir>/tests/$1",
+    "@settings/(.*)$": "<rootDir>/settings/$1",
+    "@cli/(.*)$": "<rootDir>/cli/$1",
+    "@config/(.*)$": "<rootDir>/config/$1"
+  },
+  "setupFilesAfterEnv": ["<rootDir>/settings/setup-db.i11.ts"],
+  "bail": 1
+}
